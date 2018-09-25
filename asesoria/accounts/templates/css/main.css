@@ -42,6 +42,16 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 
+.footer {
+    position: absolute;
+    text-align:center;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
 /*---------------------------------------------*/
 a {
 	font-family: Poppins-Regular;
@@ -164,8 +174,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;
-  min-height: 100vh;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -178,6 +187,24 @@ iframe {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.navbar-custom {
+    background-color: #dc6703;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
 }
 
 .wrap-login100 {
@@ -477,7 +504,7 @@ iframe {
   .btn-squared-default
   {
       width: 100px !important;
-      height: 100px !important;
+      height: 150px !important;
       font-size: 10px;
   }
 
@@ -489,7 +516,7 @@ iframe {
 
   .btn-squared-default-plain
   {
-      width: 100px !important;
+      width: 150px !important;
       height: 100px !important;
       font-size: 10px;
   }

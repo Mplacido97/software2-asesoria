@@ -1,0 +1,138 @@
+{%load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+<!--===============================================================================================-->
+
+</head>
+<body>
+	<div>
+		<br />
+	</div>
+	<div class="container text-center">
+		<div class= "row">
+			<div>
+				<img margin-left="100" width="150" height="150" src="{% static 'images\logo.jpg' %}" />
+			</div>
+			<div class = "col-sm-4">
+				<br />
+				<br />
+				<h2 align-content: "center">Asesorias ULima</h2>
+			</div>
+			<div class = "col-sm-4">
+				<br /><br />
+				<p> Bienvenido {Nombre de Usuario} </p>
+				<p> ¿Que deseas hacer hoy? </p>
+			</div>
+					<div class = "col-sm-2">
+						<button type="button" class="btn btn-warning">Log Off</button>
+					</div>
+	  </div>
+	</div>
+
+	<br />
+	<br />
+
+  <div>
+    <div class="container">
+			<div class="row">
+
+        <div class="col-4">
+					 <a href="#" class="btn btn-squared-default btn-warning btn-block">
+						<i class="fa fa-pencil fa-5x"></i>
+						<br />
+						Buscar Asesoria
+						</a>
+					</div>
+
+					<div class="col-4">
+								<a href="#" class="btn btn-squared-default btn-danger btn-block">
+                    <i class="fa fa-barcode fa-5x"></i>
+                    <br />
+                    Calendario
+                </a>
+					</div>
+					<div class="col-4">
+                <a href="#" class="btn btn-squared-default btn-warning btn-block">
+                    <i class="fa fa-mobile fa-5x"></i>
+                    <br />
+                    Historial
+                </a>
+					</div>
+			</div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+
+							  <a href="#" class="btn btn-squared-default btn-info btn-block">
+									<i class="fa fa-bell fa-5x"></i>
+									<br />
+									Favoritos
+							  </a>
+					</div>
+				<div class="col-lg-4">
+                <a href="#" class="btn btn-squared-default-plain btn-success btn-block">
+                    <i class="fa fa-laptop fa-5x"></i>
+                    <br />
+                    ChatBox
+                </a>
+					</div>
+				<div class="col-lg-4">
+                <a href="#" class="btn btn-squared-default-plain btn-info btn-block">
+                    <i class="fa fa-compass fa-5x"></i>
+                    <br />
+                    Ayuda
+                </a>
+				</div>
+        </div>
+    </div>
+		</div>
+</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js'%}"></script>
+
+</body>
+</html>
