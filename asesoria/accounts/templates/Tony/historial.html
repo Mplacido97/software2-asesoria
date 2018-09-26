@@ -70,13 +70,13 @@
 									<th colspan="2">Fecha y Hora</th>
 									<th>Lugar</th>
 								</tr>
-                {% for favorito in favoritos %}
+                {% for cita in citas %}
 									<tr>
-										<td>{{favorito.asesoria.codProfesor.nombrepProfesor}}</td>
-								    <td>{{favorito.asesoria.codCurso.nombreCurso}}</td>
-								    <td>{{favorito.asesoria.fechaAsesoria}}</td>
-										<td>{{favorito.asesoria.horaInicio|time:'H:i'}}</td>
-								    <td>{{favorito.asesoria.lugar.lugar}}</td>
+										<td>{{cita.asesoria.codProfesor.nombrepProfesor}}</td>
+								    <td>{{cita.asesoria.codCurso.nombreCurso}}</td>
+								    <td>{{cita.asesoria.fechaAsesoria}}</td>
+										<td>{{cita.asesoria.horaInicio|time:'H:i'}}</td>
+								    <td>{{cita.asesoria.lugar.lugar}}</td>
 								  </tr>
                 {% endfor%}
 							</table>
