@@ -36,7 +36,9 @@
 	<div class="container text-center">
 		<div class= "row">
 			<div>
-				<img margin-left="100" width="150" height="150" src="{% static 'images\logo.jpg' %}" />
+				<a href="../home">
+					<img margin-left="100" width="150" height="150" src="{% static 'images\logo.jpg' %}" />
+				</a>
 			</div>
 			<div class = "col-sm-4">
 				<br />
@@ -59,56 +61,19 @@
 
   <div>
     <div class="container">
-			<div class="row">
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
-					 <a href="../lista_profesores" class="btn btn-squared-default btn-warning btn-block">
-						<i class="fa fa-pencil fa-5x"></i>
-						<br />
-						Buscar Asesoria
-						</a>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12">
-						<a href="../calendario" class="btn btn-squared-default btn-danger btn-block">
-                <i class="fa fa-barcode fa-5x"></i>
-                <br />
-                Calendario
-            </a>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-12">
-                <a href="../historial" class="btn btn-squared-default btn-warning btn-block">
-                    <i class="fa fa-mobile fa-5x"></i>
-                    <br />
-                    Historial
-                </a>
-					</div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-
-							  <a href="../favoritos" class="btn btn-squared-default btn-info btn-block">
-									<i class="fa fa-bell fa-5x"></i>
-									<br />
-									Favoritos
-							  </a>
-					</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-                <a href="../chatbox" class="btn btn-squared-default-plain btn-success btn-block">
-                    <i class="fa fa-laptop fa-5x"></i>
-                    <br />
-                    ChatBox
-                </a>
-					</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-                <a href="../ayuda" class="btn btn-squared-default-plain btn-info btn-block">
-                    <i class="fa fa-compass fa-5x"></i>
-                    <br />
-                    Ayuda
-                </a>
+			<div id="calendar">
+				<div class="grid-container">
+					{% for key, values in semana.items %}
+						<div class="grid-item"> {{key}}</div>
+						{% for value in values %}
+							<div class="grid-item"> {{value}}</div>
+						{% endfor %}
+					{% endfor %}
 				</div>
-        </div>
+			</div>
     </div>
-		</div>
+	</div>
 </div>
 
 
@@ -130,6 +95,5 @@
 	<script src="{% static 'vendor/countdowntime/countdowntime.js'%}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'js/main.js'%}"></script>
-
 </body>
 </html>
