@@ -1,0 +1,37 @@
+{% extends "profesor/base.html" %}
+{%load staticfiles %}
+
+{% block title %} <title> Historial </title>{% endblock %}
+
+{% block body %}
+  <div>
+    <div class="container">
+			<h4>ASESORIAS PASADAS</h4>
+        <table>
+					<tr>
+						<th>Alumno</th>
+						<th>Curso</th>
+						<th colspan="2">Fecha y Hora</th>
+						<th>Lugar</th>
+						<th>Acción</th>
+					</tr>
+          {% for asesoria in asesorias %}
+						{% for cita in asesoria.cita_set.all %}
+							<tr>
+								<td>{{cita.alumno.nombre}}</td>
+						    <td>{{asesoria.codCurso.nombreCurso}}</td>
+						    <td>{{asesoria.fechaAsesoria}}</td>
+								<td>{{asesoria.horaInicio|time:'H:i'}}</td>
+						    <td>{{asesoria.lugar.lugar}}</td>
+								<td>
+									<a href="{% url 'profesor:eliminar_cita' cita.pk %}" class="btn btn-info" >Eliminar</a>
+								</td>
+						  </tr>
+						{% endfor%}
+          {% endfor%}
+				</table>
+        <hr>
+	</div>
+</div>
+<div id="dropDownSelect1"></div>
+{% endblock %}

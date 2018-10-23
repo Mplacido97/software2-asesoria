@@ -1,0 +1,68 @@
+{% extends "alumno/base.html" %}
+{%load staticfiles %}
+
+{% block title %} <title> Favoritos </title>{% endblock %}
+
+{% block body %}
+	<div>
+		<br />
+	</div>
+	<div class="container text-center">
+		<div class= "row">
+			<div>
+				<a href="../home">
+					<img margin-left="100" width="150" height="150" src="{% static 'images\logo.jpg' %}" />
+				</a>
+			</div>
+			<div class = "col-sm-4">
+				<br />
+				<br />
+				<h2 align-content: "center">Asesorias ULima</h2>
+			</div>
+			<div class = "col-sm-4">
+				<br /><br />
+				<p> Bienvenido {{usuario.nombre| upper}} </p>
+				<p> ¿Que deseas hacer hoy? </p>
+			</div>
+					<div class = "col-sm-2">
+						<a href="{% url 'alumno:log_out' %}" class="btn btn-warning">Log Off</a>
+					</div>
+	  </div>
+	</div>
+
+	<br />
+	<br />
+
+  <div>
+    <div class="container">
+      <h4>LISTA DE FAVORITOS</h4>
+      <br>
+      <ul>
+            <li>
+              <table>
+								<tr>
+									<th>Curso</th>
+									<th colspan="2">Fecha y Hora</th>
+									<th>Lugar</th>
+									<th>Acción</th>
+								</tr>
+								{% for favorito in favoritos %}
+									<tr>
+								    <td>{{favorito.asesoria.codCurso.nombreCurso}}</td>
+								    <td>{{favorito.asesoria.fechaAsesoria}}</td>
+										<td>{{favorito.asesoria.horaInicio|time:'H:i'}}</td>
+								    <td>{{favorito.asesoria.lugar.lugar}}</td>
+										<td>
+											<a href="{% url 'alumno:eliminar_favorito' favorito.pk %}" class="btn btn-info" >Eliminar</a>
+										</td>
+								  </tr>
+                {% endfor%}
+							</table>
+            </li>
+            <hr>
+      </ul>
+    </div>
+	</div>
+</div>
+<div id="dropDownSelect1"></div>
+{% endblock %}
