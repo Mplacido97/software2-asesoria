@@ -36,15 +36,24 @@
   <div>
     <div class="container">
       <h4>LISTA DE PROFESORES</h4>
+			<br>
+			<div class="form-group">
+		    <label for="exampleInputEmail1">Buscar Profesor</label>
+		    <input type="text" class="form-control" placeholder="Ingrese el nombre del profesor" oninput="buscarProfesor(this.value)">
+		  </div>
       <br>
 			{% if var1 %}
 				<div style="color:red;">YA HA SIDO ELEGIDA ESA ASESORÍA</div>
 			{% endif %}
-      <ul>
+      <ul id="lista_profesores">
         {% for profesor in profesores %}
-            <li>
+            <li class={{profesor.nombrepProfesor}}>
               <div class="row">
-                <p class="col-4">Nombre: {{profesor.nombrepProfesor}}</p>
+                <p class="col-4">Nombre:
+
+									<a href="{% url 'alumno:perfil_profesor' profesor.pk %}" ><u>{{profesor.nombrepProfesor}}</u></a>
+
+								</p>
                 <p class="col-4">Correo: {{profesor.email}}</p>
                 <p class="col-4">Código: {{profesor.codigoUlima}}</p>
               </div>
@@ -79,5 +88,20 @@
 
 
 <div id="dropDownSelect1"></div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+	function buscarProfesor(value){
+		var children = $("#lista_profesores li")
+		children.each( function (li){
+			var atttribute = children[li].className.startsWith(value) ? 'block' : 'none'
+			children[li].setAttribute('style', "display: " + atttribute)
+		})
+	}
+
+</script>
 
 {% endblock %}

@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -17,6 +16,7 @@ class Profesor(models.Model):
     codigoUlima  = models.CharField(max_length=20, unique=True)
     email  = models.CharField(max_length=30, unique=True)
     state = models.CharField(max_length=20, choices=state_options)
+    image = models.ImageField(upload_to="profesores/")
 
     def __str__(self):
         return "PK: {}, Nombre: {}, Código ULima: {}".format(self.pk, self.nombrepProfesor, self.codigoUlima)

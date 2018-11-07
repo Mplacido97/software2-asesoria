@@ -46,16 +46,19 @@
 									<th>Acción</th>
 								</tr>
                 {% for cita in citas %}
-									<tr>
-										<td>{{cita.asesoria.codProfesor.nombrepProfesor}}</td>
-								    <td>{{cita.asesoria.codCurso.nombreCurso}}</td>
-								    <td>{{cita.asesoria.fechaAsesoria}}</td>
-										<td>{{cita.asesoria.horaInicio|time:'H:i'}}</td>
-								    <td>{{cita.asesoria.lugar.lugar}}</td>
-										<td>
-											<a href="{% url 'alumno:eliminar_cita' cita.pk %}" class="btn btn-info" >Eliminar</a>
-										</td>
-								  </tr>
+									{% if not cita.finalizado %}
+										<tr>
+											<td>{{cita.asesoria.codProfesor.nombrepProfesor}}</td>
+									    <td>{{cita.asesoria.codCurso.nombreCurso}}</td>
+									    <td>{{cita.asesoria.fechaAsesoria}}</td>
+											<td>{{cita.asesoria.horaInicio|time:'H:i'}}</td>
+									    <td>{{cita.asesoria.lugar.lugar}}</td>
+											<td>
+												<a href="{% url 'alumno:eliminar_cita' cita.pk %}" class="btn btn-info" >Eliminar</a>
+												<a href="{% url 'alumno:finalizar_cita' cita.pk %}" class="btn btn-warning" >Finalizar</a>
+											</td>
+									  </tr>
+									{% endif %}
                 {% endfor%}
 							</table>
             <hr>

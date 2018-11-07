@@ -36,7 +36,7 @@
 			<div class="row">
 
         <div class="col-lg-4 col-md-6 col-sm-12">
-					 <a href="../lista_profesores" class="btn btn-squared-default btn-warning btn-block">
+					 <a href="{% url 'alumno:lista_profesores' %}" class="btn btn-squared-default btn-warning btn-block">
 						<i class="fa fa-pencil fa-5x"></i>
 						<br />
 						Buscar Asesoria
@@ -44,14 +44,14 @@
 					</div>
 
 					<div class="col-lg-4 col-md-6 col-sm-12">
-						<a href="../calendario" class="btn btn-squared-default btn-danger btn-block">
+						<a href="{% url 'alumno:calendario' num_semana %}" class="btn btn-squared-default btn-danger btn-block">
                 <i class="fa fa-barcode fa-5x"></i>
                 <br />
                 Calendario
             </a>
 					</div>
 					<div class="col-lg-4 col-md-6 col-sm-12">
-                <a href="../historial" class="btn btn-squared-default btn-warning btn-block">
+                <a href="{% url 'alumno:historial' %}" class="btn btn-squared-default btn-warning btn-block">
                     <i class="fa fa-mobile fa-5x"></i>
                     <br />
                     Historial
@@ -60,7 +60,7 @@
 
         <div class="col-lg-4 col-md-6 col-sm-12">
 
-							  <a href="../favoritos" class="btn btn-squared-default btn-info btn-block">
+							  <a href="{% url 'alumno:favoritos' %}"class="btn btn-squared-default btn-info btn-block">
 									<i class="fa fa-bell fa-5x"></i>
 									<br />
 									Favoritos

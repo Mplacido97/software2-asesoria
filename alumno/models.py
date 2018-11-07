@@ -32,6 +32,8 @@ class Alumno(models.Model):
 class Cita(models.Model):
     asesoria = models.ForeignKey(Asesoria, on_delete=models.CASCADE)
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    semana = models.IntegerField()
+    finalizado = models.BooleanField(default=False)
     #PUEDE MEJORARSE
     tema = models.CharField(max_length=300)
 
@@ -51,3 +53,10 @@ class Favorito(models.Model):
 
     def __str__(self):
         return "Asesoria: {}, Alumno: {}".format(self.asesoria, self.alumno)
+
+
+class Comentario(models.Model):
+
+    cita = models.ForeignKey(Cita, on_delete=models.CASCADE)
+    rate = models.IntegerField()
+    comment = models.CharField(max_length = 200)
