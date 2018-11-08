@@ -85,6 +85,27 @@ def calendar(request):
         return render(request, 'profesor/Tony/calendar.html', args)
     return redirect('/profesor/login')
 
+
+def perfil_profesor(request):
+    comentarios = []
+    total_rate = 0
+    num_rate = 0
+
+    user_id = request.session.get('user', None)
+    user = Profesor.objects.filter(pk=user_id).first()
+    if user != None:
+        for asesoria in user.asesoria_set.all():
+            for cita in asesoria.cita_set.all():
+                for comentario in cita.comentario_set.all():
+                    comentarios.append(comentario)
+                    total_rate += comentario.rate
+                    num_rate +=1
+        rate = total_rate / num_rate if num_rate > 0 else " ** No hay Puntuación **"
+        args = {"profesor": user, "comentarios": comentarios, "rate": rate}
+        return render(request, 'profesor/Tony/perfil_profesor.html', args)
+    return redirect('/profesor/login')
+
+
 def log_out(request):
     try:
         del request.session['user']

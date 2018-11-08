@@ -97,7 +97,7 @@
 	function buscarProfesor(value){
 		var children = $("#lista_profesores li")
 		children.each( function (li){
-			var atttribute = children[li].className.startsWith(value) ? 'block' : 'none'
+			var atttribute = children[li].className.toLowerCase().startsWith(value.toLowerCase()) ? 'block' : 'none'
 			children[li].setAttribute('style', "display: " + atttribute)
 		})
 	}

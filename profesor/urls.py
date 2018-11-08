@@ -15,6 +15,7 @@ urlpatterns = [
     path('change_state/',  views.change_state),
 
 
+    path('perfil_profesor/', views.perfil_profesor, name="perfil_profesor"),
     path('eliminar_cita/(?P<cita>\w+)/', views.eliminar_cita, name="eliminar_cita"),
 
 ]
