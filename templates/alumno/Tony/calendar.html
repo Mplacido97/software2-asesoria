@@ -1,0 +1,70 @@
+{% extends "alumno/base.html" %}
+{%load staticfiles %}
+
+{% block title %} <title> Calendario </title>{% endblock %}
+
+{% block body %}
+	<div>
+		<br />
+	</div>
+	<div class="container text-center">
+		<div class= "row">
+			<div>
+				<a href="{% url 'alumno:home' %}">
+					<img margin-left="100" width="150" height="150" src="{% static 'images\logo.jpg' %}" />
+				</a>
+			</div>
+			<div class = "col-sm-4">
+				<br />
+				<br />
+				<h2 align-content: "center">Asesorias ULima</h2>
+			</div>
+			<div class = "col-sm-4">
+				<br /><br />
+				<p> Bienvenido {{usuario.nombre|upper}} </p>
+				<p> ¿Que deseas hacer hoy? </p>
+			</div>
+					<div class = "col-sm-2">
+						<a href="{% url 'alumno:log_out' %}" class="btn btn-warning">Log Off</a>
+					</div>
+	  </div>
+	</div>
+
+	<br />
+	<br />
+
+  <div>
+    <div class="container">
+			<div class="row">
+				<div class="col-3">
+					{% if anterior %}
+						<a href="{% url 'alumno:calendario' anterior %}"> < Semana Anterior</a>
+					{% endif %}
+				</div>
+				<div class="col-6">
+					<h3 class="text-center">Semana {{num_semana}}</h3>
+				</div>
+				<div class="col-3">
+					{% if siguiente %}
+						<p class="text-right"><a href="{% url 'alumno:calendario' siguiente %}"> Siguiente Semana ></a></p>
+
+					{% endif %}
+				</div>
+
+			</div>
+			<br>
+			<div id="calendar">
+				<div class="grid-container">
+					{% for key, values in semana.items %}
+						<div class="grid-item"> {{key}}</div>
+						{% for value in values %}
+							<div class="grid-item"> {{value}}</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+			</div>
+    </div>
+	</div>
+</div>
+<div id="dropDownSelect1"></div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "profesor/base.html" %}
+{%load staticfiles %}
+
+{% block title %} <title> Home </title>{% endblock %}
+
+{% block body %}
+
+
+  <div>
+    <div class="container">
+			<div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+					 <a href="../citas" class="btn btn-squared-default btn-warning btn-block">
+						<i class="fa fa-pencil fa-5x"></i>
+						<br />
+						Citas Reservadas
+						</a>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<a href="../calendario" class="btn btn-squared-default btn-danger btn-block">
+                <i class="fa fa-barcode fa-5x"></i>
+                <br />
+                Calendario
+            </a>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12">
+                <a href="../historial" class="btn btn-squared-default btn-warning btn-block">
+                    <i class="fa fa-mobile fa-5x"></i>
+                    <br />
+                    Historial
+                </a>
+					</div>
+
+				<div class="col-lg-4 col-md-6 col-sm-12">
+                <a href="../perfil_profesor" class="btn btn-squared-default-plain btn-success btn-block">
+                    <i class="fa fa-user fa-5x"></i>
+                    <br />
+                    Perfil
+                </a>
+					</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+                <a href="../ayuda" class="btn btn-squared-default-plain btn-info btn-block">
+                    <i class="fa fa-compass fa-5x"></i>
+                    <br />
+                    Ayuda
+                </a>
+				</div>
+        </div>
+    </div>
+		</div>
+</div>
+
+
+	<div id="dropDownSelect1"></div>
+{% endblock %}
