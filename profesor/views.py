@@ -3,18 +3,23 @@ from django.shortcuts import render, redirect
 from profesor.forms import *
 from profesor.models import *
 from alumno.models import Cita
+import datetime
 # Create your views here.
+
+inicio_clases = datetime.datetime(2018, 8, 6)
 
 PROFESOR = 'PROFESOR'
 
 
 def home(request):
+    delta_date = datetime.datetime.now() - inicio_clases
+    num_semana = round(delta_date.days / 7)
     user_id = request.session.get('user', None)
     type = request.session.get('type', None)
     if type == PROFESOR:
         user = Profesor.objects.filter(pk=user_id).first()
         if user != None:
-            return render(request,'profesor/Tony/home.html', {"usuario": user})
+            return render(request,'profesor/Tony/home.html', {"usuario": user, "num_semana": num_semana})
     return redirect('/profesor/login')
 
 
@@ -65,7 +70,8 @@ def change_state(request):
         user.save()
     return ''
 
-def calendar(request):
+def calendar(request, num_semana):
+    num_semana = int(num_semana)
     user_id = request.session.get('user', None)
     user = Profesor.objects.filter(pk=user_id).first()
     if user != None:
@@ -79,11 +85,38 @@ def calendar(request):
             'Viernes': ['']*15,
         }
         for asesoria in asesorias:
-            semana[asesoria.fechaAsesoria][int(asesoria.horaInicio.hour) - 7] = "Favorito: " + asesoria.codCurso.nombreCurso + " - " + user.nombrepProfesor + " - " + asesoria.lugar.lugar
+            semana[asesoria.fechaAsesoria][int(asesoria.horaInicio.hour) - 7] = "cita: " + asesoria.codCurso.nombreCurso + " - " + user.nombrepProfesor + " - " + asesoria.lugar.lugar
 
-        args = {"semana": semana, "usuario": user}
+        args = {"semana": semana, "usuario": user, "num_semana": num_semana}
+
+        if num_semana > 1:
+            args["anterior"] = num_semana - 1
+        if num_semana < 16:
+            args["siguiente"] = num_semana + 1
+
         return render(request, 'profesor/Tony/calendar.html', args)
     return redirect('/profesor/login')
+
+
+def perfil_profesor(request):
+    comentarios = []
+    total_rate = 0
+    num_rate = 0
+
+    user_id = request.session.get('user', None)
+    user = Profesor.objects.filter(pk=user_id).first()
+    if user != None:
+        for asesoria in user.asesoria_set.all():
+            for cita in asesoria.cita_set.all():
+                for comentario in cita.comentario_set.all():
+                    comentarios.append(comentario)
+                    total_rate += comentario.rate
+                    num_rate +=1
+        rate = total_rate / num_rate if num_rate > 0 else " ** No hay Puntuación **"
+        args = {"profesor": user, "comentarios": comentarios, "rate": rate}
+        return render(request, 'profesor/Tony/perfil_profesor.html', args)
+    return redirect('/profesor/login')
+
 
 def log_out(request):
     try:

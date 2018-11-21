@@ -6,6 +6,24 @@
 {% block body %}
   <div>
     <div class="container">
+      <div class="row">
+				<div class="col-3">
+					{% if anterior %}
+						<a href="{% url 'alumno:calendario' anterior %}"> < Semana Anterior</a>
+					{% endif %}
+				</div>
+				<div class="col-6">
+					<h3 class="text-center">Semana {{num_semana}}</h3>
+				</div>
+				<div class="col-3">
+					{% if siguiente %}
+						<p class="text-right"><a href="{% url 'alumno:calendario' siguiente %}"> Siguiente Semana ></a></p>
+
+					{% endif %}
+				</div>
+
+			</div>
+			<br>
 			<div id="calendar">
 				<div class="grid-container">
 					{% for key, values in semana.items %}

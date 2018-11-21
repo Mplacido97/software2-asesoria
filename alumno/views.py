@@ -62,6 +62,7 @@ def lista_profesores(request):
     user_id = request.session.get('user', None)
     user = Alumno.objects.filter(pk=user_id).first()
     if user != None:
+        print(user.cita_set.all())
         profesores = Profesor.objects.all()
         args = {"profesores": profesores, "usuario": user}
         return render(request, 'alumno/Tony/lista_profesores.html', args)
@@ -151,8 +152,8 @@ def agregar_cita(request, asesoria):
     # print(Cita.objects.get(pk=codCita))
     # return render(request, 'Tony/lista_profesores.html', args)
     profesores = Profesor.objects.all()
-    args = {"profesores": profesores, "usuario": request.user}
-    return redirect('/alumno/lista_profesores')
+    args = {"profesores": profesores, "usuario": request.user, "success": True}
+    return render(request, 'alumno/Tony/lista_profesores.html', args)
 
 def agregar_favorito(request, asesoria):
     try:
